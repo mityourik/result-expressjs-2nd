@@ -1,0 +1,25 @@
+{
+  "name": "result-expressjs-2nd",
+  "version": "1.0.0",
+  "description": "learning-app",
+  "homepage": "https://github.com/mityourik/result-expressjs-2nd#readme",
+  "bugs": {
+    "url": "https://github.com/mityourik/result-expressjs-2nd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mityourik/result-expressjs-2nd.git"
+  },
+  "license": "ISC",
+  "author": "dmitrih",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
