@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <% if (created) { %>
+        <div class="alert alert-success">Note created</div>
+    <% } %>
+    <div class="container">
+        <h1><%= title %></h1>
+        <form action="/" method="post" class="mb-2">
+            <div class="form-group">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+
+        <% if (notes.length > 0) { %>
+        <div class="card">
+            <ul class="list-group" data-notes="<%= JSON.stringify(notes) %>">
+                <% notes.forEach(note => { %>
+                    <li class="list-group-item d-flex align-items-center justify-content-between gap-2" data-note-id="<%= note.id %>">
+                        <span data-note-title><%= note.title %></span>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-secondary" data-action="edit" data-id="<%= note.id %>">Edit</button>
+                            <button class="btn btn-danger" data-action="delete" data-id="<%= note.id %>">Delete</button>
+                        </div>
+                    </li>
+                <% }); %>
+                </ul>
+            </div>
+        <% } else { %>
+            <p>No notes</p>
+        <% } %>
+        <script>
+            const notes = JSON.parse(document.querySelector('[data-notes]').dataset.notes);
+        </script>
+        <script src="/app.js"></script>
+    </div>
+</body>
+</html>
