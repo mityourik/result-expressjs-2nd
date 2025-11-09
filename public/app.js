@@ -51,7 +51,6 @@ async function editNote(id) {
     const newTitle = prompt('Введите новое название заметки', currentTitle);
 
     if (newTitle === null) {
-        // user cancelled the prompt
         return;
     }
 
